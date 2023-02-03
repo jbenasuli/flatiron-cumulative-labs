@@ -1,3 +1,11 @@
+# MacOS generated files
+.DS_Store
+
+# Local only directories/files
+*/notes/
+*/local-files/
+*/working-files/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
