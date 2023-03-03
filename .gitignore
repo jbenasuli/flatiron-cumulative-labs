@@ -6,6 +6,7 @@
 */local-files/
 */working-files/
 */solutions/
+*/data/ # unzipped data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
