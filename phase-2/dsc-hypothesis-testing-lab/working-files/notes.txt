@@ -1,0 +1,72 @@
+goal: improve the health insurance industry by providing better care and offerings to its patients
+
+data: 
+- cdc 2017-2018 annual survey
+- 'data/case_study.csv' (tsv)
+
+stakeholders: Chief Analytics Officer and Chief Marketing Officer
+
+key questions: 
+
+1) How does health status, represented by average number of days with bad physical health in the past month (PHYSHLTH), differ by state?
+
+2) Digging deeper into the data, what are some factors that impact health (demographics, behaviors, etc.)?
+
+notes:
+Prior to each statistical test, you will need to perform some data preparation, which could include:
+
+* Filtering out rows with irrelevant values
+* Transforming data from codes into human-readable values
+* Binning data to transform it from numeric to categorical
+* Creating new columns based on queries of the values in other columns
+
+EDA/Cleaning:
+
+PHYSHLTH column: 
+ - 1 row not asked or missing
+ - Column: 91-92
+ - Type of Variable: Num
+ - SAS Variable Name: PHYSHLTH
+ - Question Prologue:
+ - Question: Now thinking about your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good?
+
+POORHLTH
+ - based on PHYSHLTH and MENTHLTH responses 
+ - Section 02.01, PHYSHLTH, is 88 (aka no issues) and Section 2.02, MENTHLTH, is 88 (aka no issues)
+
+
+For steps 2-5, you will need to select and execute an appropriate statistical test. Recall these tests we have learned so far:
+
+1. Chi-squared test
+- https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2_contingency.html
+- used for comparing a categorical feature against a categorical feature, to determine whether they are independent
+
+2. t-test
+- https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+- used for comparing two categories of a numeric feature, to determine whether their means are the same across categories
+
+3. ANOVA
+- https://www.statsmodels.org/stable/generated/statsmodels.stats.anova.anova_lm.html#statsmodels.stats.anova.anova_lm
+- used for comparing more than two categories of a numeric feature, to determine whether their means are the same across categories
+
+### Requirements
+
+#### 1. Prepare `PHYSHLTH` Data for Analysis
+
+Using the data dictionary, ensure that you understand the meaning of the `PHYSHLTH` column. Then clean the data so that only valid records of `PHYSHLTH` remain.
+
+#### 2. Describe the Distribution of Health Status by State
+
+Does health status (`PHYSHLTH`) differ by state (`STATE_`)? If so, by how much, and is it statistically significant?
+
+#### 3. Describe the Relationship between Health Status and Home Ownership Status
+
+Does health status (`PHYSHLTH`) differ between home owners and renters (`RENTHOM1`)? If so, by how much, and is it statistically significant?
+
+#### 4. Describe the Relationship between Chronic Sickness and Nicotine Use
+
+Does chronic sickness (`PHYSHLTH >= 15`) differ based on nicotine use (various columns)? If so, by how much, and is it statistically significant?
+
+#### 5. Choose Your Own Question
+
+Thinking about the business case, what is another question that might be useful to answer? Perform all analysis steps to answer this question.
