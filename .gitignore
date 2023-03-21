@@ -3,7 +3,7 @@
 
 # Local only directories/files
 */notes/
-*/local-files/
+local-files/
 */working-files/
 */solutions/
 */data/ # unzipped data
